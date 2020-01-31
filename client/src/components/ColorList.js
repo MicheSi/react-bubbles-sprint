@@ -6,7 +6,7 @@ const initialColor = {
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors }) => {
+const ColorList = ({ colors, updateColors, props }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
@@ -14,7 +14,7 @@ const ColorList = ({ colors, updateColors }) => {
   const editColor = color => {
     setEditing(true);
     setColorToEdit(color);
-    console.log(color.id)
+    console.log(color)
   };
 
 
@@ -26,8 +26,7 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
         console.log(res.data)
-        updateColors(colorToEdit)
-        setEditing(false)
+        window.location.reload()
       })
       .catch(err => console.log('Error updating', err))
     }
@@ -38,8 +37,7 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
     .delete(`/api/colors/${color.id}`)
     .then(res => {
-      updateColors(color)
-      // props.history.push('/bubbles')
+      window.location.reload()
     })
     .catch(err => console.log('Error deleting', err))
   };
