@@ -44,7 +44,7 @@ Program – Code that tells a physical web server what to do. It “serves” we
 
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
-C – post requests
+C – create & post requests
 R – get requests
 U – put requests
 D – delete requests
