@@ -14,13 +14,19 @@ const AddColor = props => {
 
     const changeHandler = e => {
         setNewColor({
-            ...color,
+            ...newColor,
             [e.target.name]: e.target.value
         })
     }
 
     const addColor = e => {
         e.preventDefault();
+        axiosWithAuth()
+        .post(`/api/colors`, newColor)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => console.log('Error adding color', err))
     }
 
     return (
@@ -33,14 +39,15 @@ const AddColor = props => {
                  name='color'
                  placeholder='Color Name'
                  onChange={changeHandler}
-                 value={color.color}
+                 value={newColor.color}
                 />
                 <input
+                 required
                  type='text'
                  name='hexcode'
                  placeholder='Hex Code'
                  onChange={changeHandler}
-                 value={color.code.hex}
+                 value={newColor.code.hex}
                 />
                 <button className='addColor'>Add Color</button>
             </form>
