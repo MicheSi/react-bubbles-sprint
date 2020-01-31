@@ -60,10 +60,22 @@ body,
   margin-right: 36px;
 }
 
+.homePage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('./components/bgImage.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
 form {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   legend {
     padding-left: 40px;
@@ -80,7 +92,17 @@ form {
   }
 
   input {
-    width: 100px;
+    width: 200px;
+    height: 25px;
+  }
+
+  .loginBtn {
+    width: 60px;
+    height: 30px;
+    margin-top: 8%;
+    border: 2px outset royalblue;
+    background-color: slateblue;
+    color: white;
   }
 }
 
