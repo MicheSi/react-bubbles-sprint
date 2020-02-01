@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pack } from "@potion/layout";
 import { Svg, Circle } from "@potion/element";
+import {Link} from 'react-router-dom';
 
 const Bubbles = ({ colors }) => {
   const [bubbleData, setBubbleData] = useState([]);
@@ -12,9 +13,11 @@ const Bubbles = ({ colors }) => {
     setBubbleData(generateBubbleData);
   }, [colors]);
 
+
   return (
     <div className="bubble-wrap">
       <p>bubbles</p>
+      <Link to='/add-color'>Add New Color</Link>
       <Svg width={400} height={400}>
         <Pack
           data={{
